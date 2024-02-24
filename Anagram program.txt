@@ -1,0 +1,50 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter two strings:");
+        String str1=s.nextLine();
+        String str2=s.nextLine();
+        int n1=str1.length();
+        int n2=str2.length();
+        HashMap<Character,Integer> hmap1=new HashMap<Character,Integer>();
+        HashMap<Character,Integer> hmap2=new HashMap<Character,Integer>();
+        if(n1==n2)
+        {
+            for(int i=0; i<n1; i++)
+            {
+              if(hmap1.containsKey(str1.charAt(i)))
+              {
+                  int count=hmap1.get(str1.charAt(i))+1;
+                  hmap1.put(str1.charAt(i),count);
+              }
+              else
+              {
+                  hmap1.put(str1.charAt(i),1);
+              }
+              if(hmap2.containsKey(str2.charAt(i)))
+              {
+                  int count=hmap2.get(str2.charAt(i))+1;
+                  hmap2.put(str2.charAt(i),count);
+              }
+              else
+              {
+                  hmap2.put(str2.charAt(i),1);
+              }
+            }
+            if(hmap1.equals(hmap2))
+            {
+                System.out.println("Anagram");
+            }
+            else
+            {
+                System.out.println("Not Anagram");
+            }
+        }
+        else
+        {
+            System.out.println("Not Anagram");
+        }
+    }
+}
